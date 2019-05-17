@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/nav_generalinfo"
+                android:icon="@drawable/info"
+                android:title="@string/menu_general"/>
+        <item
+                android:id="@+id/nav_schedules"
+                android:icon="@drawable/schedule"
+                android:title="@string/menu_schedule"/>
+        <item
+                android:id="@+id/nav_specialevents"
+                android:icon="@drawable/special"
+                android:title="@string/menu_special"/>
+        <item
+                android:id="@+id/nav_sponsors"
+                android:icon="@drawable/gift"
+                android:title="@string/menu_sponsors"/>
+        <item
+            android:id="@+id/nav_socialmedia"
+            android:icon="@drawable/social"
+            android:title="@string/menu_social"/>
+        <!--Expandle Navigation Menu-->
+        <item
+                android:id="@+id/nav_back"
+                android:icon="@drawable/back"
+                android:title="@string/menu_back"
+                android:visible="false"/>
+        <item
+                android:id="@+id/nav_pyconafricablog"
+                android:icon="@drawable/blog"
+                android:title="@string/menu_pyconafricablog"
+                android:visible="false"/>
+        <item
+                android:id="@+id/nav_website"
+                android:icon="@drawable/website"
+                android:title="@string/menu_website"
+                android:visible="false"
+        />
+
+        <item
+                android:id="@+id/nav_youtube"
+                android:icon="@drawable/youtube"
+                android:title="@string/menu_youtube"
+                android:visible="false"
+        />
+        <item
+                android:id="@+id/nav_facebook"
+                android:icon="@drawable/facebook"
+                android:title="@string/menu_facebook"
+                android:visible="false"
+        />
+
+        <item
+                android:id="@+id/nav_twitter"
+                android:icon="@drawable/twitter"
+                android:title="@string/menu_twitter"
+                android:visible="false"
+        />
+
+        <item
+            android:id="@+id/nav_todo"
+            android:icon="@drawable/todo"
+            android:title="@string/menu_todo"/>
+
+    </group>
+
+</menu>

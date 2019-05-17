@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+<FrameLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".socialmedia.PyAfricaWebsite">
+
+   <ProgressBar
+           android:id="@+id/load_page"
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:layout_gravity="center"
+   />
+
+   <WebView android:id="@+id/web_pyconafrica"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+   <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+           android:id="@+id/bottomNavigation"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:mbn_backgroundBottomColor="@color/colorPrimary"
+           app:mbn_countBackgroundColor="#ff6f00"
+           app:mbn_countTextColor="#ffffff"
+           android:layout_gravity="bottom"
+           app:mbn_defaultIconColor="#ffff"
+           app:mbn_rippleColor="#2f424242"
+           app:mbn_selectedIconColor="@color/colorAccent"
+           app:mbn_shadowColor="#1f212121"/>
+</FrameLayout>
+
+</layout>

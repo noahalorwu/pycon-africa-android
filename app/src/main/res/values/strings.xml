@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Pycon Africa</string>
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">6-10 Aug,2019</string>
+    <string name="nav_header_subtitle">Accra,Ghana</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_general">General Info</string>
+    <string name="menu_schedule">Schedules</string>
+    <string name="menu_special">Special Events</string>
+    <string name="menu_sponsors">Sponsors</string>
+    <string name="menu_social">Social Media</string>
+    <string name="menu_todo">To-Do</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_pyconafricablog">Pycon Africa Blog</string>
+    <string name="menu_website">Pycon Africa Website</string>
+    <string name="menu_youtube">YouTube</string>
+    <string name="menu_twitter">Twitter</string>
+    <string name="menu_back">Social Media</string>
+    <string name="menu_facebook">Facebook</string>
+    <!--Links-->
+    <string name="py_twitter">https://twitter.com/pyconafrica</string>
+    <string name="py_facebook">https://facebook.com/pyconafrica</string>
+    <string name="py_youtube">https://youtube.com/noahalorwu</string>
+    <string name="py_website">https://pycon.africa</string>
+    <string name="py_blog">https://pyconafrica.blogspot.com</string>
+</resources>
