@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+>
+
+    <data>
+        <import type="africa.pycon.pyconafrica.R"/>
+        <variable name="general"
+                  type="africa.pycon.pyconafrica.GeneralInfo"/>
+    </data>
+
+<FrameLayout
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context=".GeneralInfo">
@@ -12,6 +22,50 @@
             android:src="@drawable/bck"
 
     />
-  
-
+    <!--<View android:layout_height="1dp"-->
+          <!--android:layout_width="match_parent"-->
+          <!--android:background="#FF5722"-->
+          <!--android:layout_marginBottom="10dp"-->
+          <!--android:layout_marginTop="201dp"-->
+          <!--android:id="@+id/separator2" />-->
+    <Button
+            android:id="@+id/btn"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="202dp"
+            android:background="#FFFFFF"
+            android:text="@string/venueLocation"
+            android:textAllCaps="false"
+            android:onClick="@{()->general.openMaps()}"
+            android:drawableStart="@drawable/mlocation"
+            android:paddingStart="30dp"
+            android:paddingEnd="110dp"
+    />
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="255dp"
+            android:background="#FFFFFF"
+            android:text="                    General Information"
+            android:onClick="@{()->general.showDialog()}"
+            android:textAllCaps="false"
+           android:textDirection="@+id/btn"
+            android:textAlignment="viewStart"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:drawableStart="@drawable/mmenu"
+            android:drawableEnd="@drawable/mforward"
+    />
+    <TextView android:layout_width="match_parent"
+              android:layout_height="170dp"
+              android:layout_marginTop="300dp"
+              android:text="\tfkdfffjfjfj\n dfdfsdsdsdsdafdfdfdr  \n fhjdfjdfhjfjfhffhjfhjfhjfhjfhfhfdfdfdfdf \n dgdgdgdgdgdgdgdgd
+\n jdjdjdjdjdjdjdjdjd
+djdjdjdjdjdjd\n fhjfjfjfjfjfjfffff\n https://pycon.africa/conduct"
+              android:paddingTop="20dp"
+              android:paddingStart="30dp"
+              android:paddingEnd="30dp"
+              android:autoLink="web"
+    />
 </FrameLayout>
+</layout>

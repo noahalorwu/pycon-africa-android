@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import kotlinx.android.synthetic.main.fragment_pyafricawebsite.*
@@ -57,24 +56,17 @@ class PyAfricaWebsite : Fragment() {
         }
 
         bottomNavigation.setOnClickMenuListener {
-            val name = when (it.id) {
+            when (it.id) {
 
                 ID_RELOAD -> {
                     web_pyconafrica.reload()
-                    return@setOnClickMenuListener
-                    Toast.makeText(activity, "Reload", Toast.LENGTH_SHORT).show()
                 }
 
                 ID_BACK -> {
                         web_pyconafrica.goBack()
-                    return@setOnClickMenuListener
                 }
                 ID_FORWARD -> {
-                    if (web_pyconafrica.canGoForward()) {
                         web_pyconafrica.goForward()
-                        return@setOnClickMenuListener
-                    }
-                    Toast.makeText(activity, "Forward", Toast.LENGTH_SHORT).show()
                 }
                 else -> ""
             }

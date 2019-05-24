@@ -50,21 +50,21 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.dashboard, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        menuInflater.inflate(R.menu.dashboard, menu)
+//        return true
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        return when (item.itemId) {
+//            R.id.action_settings -> true
+//            else -> super.onOptionsItemSelected(item)
+//        }
+//    }
 
     fun setFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
@@ -74,12 +74,12 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
-        var nv: NavigationView = findViewById(R.id.nav_view)
-        var m: Menu = nv.menu
+        val nv: NavigationView = findViewById(R.id.nav_view)
+        val m: Menu = nv.menu
 
         when (item.itemId) {
             R.id.nav_generalinfo -> {
-                supportActionBar?.title = "General Info"
+                supportActionBar?.title = "General Information"
                 setFragment(GeneralInfo())
                 item.isChecked = true
             }
@@ -142,17 +142,14 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             }
 
             R.id.nav_twitter -> {
-                supportActionBar?.title = "Twitter"
                 browseCustomTab(getString(R.string.py_twitter))
             }
 
             R.id.nav_pyconafricablog -> {
-                supportActionBar?.title = "Blog"
                 browseCustomTab(getString(R.string.py_blog))
             }
 
             R.id.nav_youtube -> {
-                supportActionBar?.title = "Twitter"
                 browseCustomTab(getString(R.string.py_youtube))
             }
         }

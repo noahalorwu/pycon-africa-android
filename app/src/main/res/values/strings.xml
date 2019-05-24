@@ -3,7 +3,7 @@
     <string name="title_activity_dashboard">Dashboard</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">6-10 Aug,2019</string>
+    <string name="nav_header_title">6–10 Aug,2019</string>
     <string name="nav_header_subtitle">Accra,Ghana</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
@@ -27,4 +27,6 @@
     <string name="py_youtube">https://youtube.com/noahalorwu</string>
     <string name="py_website">https://pycon.africa</string>
     <string name="py_blog">https://pyconafrica.blogspot.com</string>
+    <string name="maps">https://maps.google.com</string>
+    <string name="venueLocation">Bank of Ghana Auditorium</string>
 </resources>

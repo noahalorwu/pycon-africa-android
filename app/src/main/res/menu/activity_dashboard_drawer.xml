@@ -24,7 +24,7 @@
             android:id="@+id/nav_socialmedia"
             android:icon="@drawable/social"
             android:title="@string/menu_social"/>
-        <!--Expandle Navigation Menu-->
+        <!--Expandle Navigation menu-->
         <item
                 android:id="@+id/nav_back"
                 android:icon="@drawable/back"
