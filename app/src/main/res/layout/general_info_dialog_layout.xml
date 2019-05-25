@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="10sp"
+>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:text="@string/general_info_dialog_title"
+              android:textSize="18sp"
+              android:layout_marginBottom="10dp"
+              android:id="@+id/general_info_title"
+              android:textStyle="bold"
+    />
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:text="Wifi Key: PyConAfrica2019"
+    android:textSize="14sp"
+    android:layout_marginBottom="10dp"
+    android:id="@+id/wifi_key"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:text="Registration: Thursday 6 August, 2019"
+              android:textSize="14sp"
+              android:id="@+id/registration"
+              android:layout_marginBottom="10dp"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="35sp"
+            android:text="Copy"
+            android:textSize="16sp"
+            android:id="@+id/copy_button"
+            android:background="@color/colorPrimary"
+            android:layout_gravity="end"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+    />
+
+
+</LinearLayout>

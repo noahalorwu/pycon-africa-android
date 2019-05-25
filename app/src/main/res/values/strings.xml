@@ -29,4 +29,7 @@
     <string name="py_blog">https://pyconafrica.blogspot.com</string>
     <string name="maps">https://maps.google.com</string>
     <string name="venueLocation">Bank of Ghana Auditorium</string>
+    <string name="general_info_dialog_title">General Information</string>
+    <string name="wifi_key">PyConAfrica2019</string>
+
 </resources>
