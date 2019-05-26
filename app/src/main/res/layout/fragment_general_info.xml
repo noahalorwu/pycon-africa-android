@@ -51,8 +51,8 @@
                 android:drawableEnd="@drawable/mforward"
                 android:textAlignment="textStart"
         />
-        <TextView android:layout_width="match_parent"
-                  android:layout_height="500dp"
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
                   android:layout_marginTop="300dp"
                   android:text="@string/about_conference"
                   android:textSize="16sp"
