@@ -97,7 +97,6 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             }
 
             R.id.nav_socialmedia -> {
-                supportActionBar?.title = "Social Media"
                 m.findItem(R.id.nav_generalinfo).isVisible = false
                 m.findItem(R.id.nav_schedules).isVisible = false
                 m.findItem(R.id.nav_sponsors).isVisible = false

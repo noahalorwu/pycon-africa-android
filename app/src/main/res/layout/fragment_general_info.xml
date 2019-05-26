@@ -10,62 +10,57 @@
                   type="africa.pycon.pyconafrica.GeneralInfo"/>
     </data>
 
-<FrameLayout
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".GeneralInfo">
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".GeneralInfo">
 
-    <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="fill_parent"
-            android:layout_height="200dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/bck"
+        <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/bck"
 
-    />
-    <!--<View android:layout_height="1dp"-->
-          <!--android:layout_width="match_parent"-->
-          <!--android:background="#FF5722"-->
-          <!--android:layout_marginBottom="10dp"-->
-          <!--android:layout_marginTop="201dp"-->
-          <!--android:id="@+id/separator2" />-->
-    <Button
-            android:id="@+id/btn"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="202dp"
-            android:background="#FFFFFF"
-            android:text="@string/venueLocation"
-            android:textAllCaps="false"
-            android:onClick="@{()->general.openMaps()}"
-            android:drawableStart="@drawable/mlocation"
-            android:paddingStart="30dp"
-            android:paddingEnd="110dp"
-    />
-    <Button
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="255dp"
-            android:background="#FFFFFF"
-            android:text="                    General Information"
-            android:onClick="@{()->general.showDialog()}"
-            android:textAllCaps="false"
-           android:textDirection="@+id/btn"
-            android:textAlignment="viewStart"
-            android:paddingStart="30dp"
-            android:paddingEnd="30dp"
-            android:drawableStart="@drawable/mmenu"
-            android:drawableEnd="@drawable/mforward"
-    />
-    <TextView android:layout_width="match_parent"
-              android:layout_height="170dp"
-              android:layout_marginTop="300dp"
-              android:text="\tfkdfffjfjfj\n dfdfsdsdsdsdafdfdfdr  \n fhjdfjdfhjfjfhffhjfhjfhjfhjfhfhfdfdfdfdf \n dgdgdgdgdgdgdgdgd
-\n jdjdjdjdjdjdjdjdjd
-djdjdjdjdjdjd\n fhjfjfjfjfjfjfffff\n https://pycon.africa/conduct"
-              android:paddingTop="20dp"
-              android:paddingStart="30dp"
-              android:paddingEnd="30dp"
-              android:autoLink="web"
-    />
-</FrameLayout>
+        />
+        <Button
+                android:id="@+id/btn"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="202dp"
+                android:background="#FFFFFF"
+                android:text="@string/venueLocation"
+                android:textAllCaps="false"
+                android:onClick="@{()->general.openMaps()}"
+                android:drawableStart="@drawable/mlocation"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:textAlignment="textStart"
+
+        />
+        <Button
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="255dp"
+                android:background="#FFFFFF"
+                android:text="General Information"
+                android:onClick="@{()->general.showDialog()}"
+                android:textAllCaps="false"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:drawableStart="@drawable/mmenu"
+                android:drawableEnd="@drawable/mforward"
+                android:textAlignment="textStart"
+        />
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="300dp"
+                  android:text="@string/about_conference"
+                  android:textSize="16sp"
+                  android:paddingTop="20dp"
+                  android:justificationMode="inter_word"
+                  android:paddingStart="30dp"
+                  android:paddingEnd="30dp"
+                  android:autoLink="web"
+        />
+    </FrameLayout>
 </layout>
