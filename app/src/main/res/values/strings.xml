@@ -31,7 +31,15 @@
     <string name="venueLocation">Bank of Ghana Auditorium</string>
     <string name="general_info_dialog_title">General Information</string>
     <string name="wifi_key">PyConAfrica2019</string>
-    <string name="about_conference"><b>Pycon Africa</b> is the first pan-African gathering of the various Python communities and Pythonistas from over 6 different countries on the continent, and many more from the diaspora using and developing the open-source Python programming language.\n\nIt is endorsed by the <b>Python Software Foundation</b> and is organized by a multi-national team of volunteers on behalf of the global Python Community. The conference is expected to attract over 250 professionals, enthusiasts, and student delegates from Africa and beyond.\n\n<b>PyCon</b> is a diverse conference dedicated to providing an enjoyable experience to everyone.\nHelp us do this by following our code of conduct: https://pycon.africa/conduct
+    <string name="about_conference">
+        <b>Pycon Africa</b>
+        is the first pan-African gathering of the various Python communities and Pythonistas from over 6 different
+        countries on the continent, and many more from the diaspora using and developing the open-source Python
+        programming language.\n\nIt is endorsed by the <b>Python Software Foundation</b> and is organized by a
+        multi-national team of volunteers on behalf of the global Python Community. The conference is expected to
+        attract over 250 professionals, enthusiasts, and student delegates from Africa and beyond.\n\n<b>PyCon</b> is a
+        diverse conference dedicated to providing an enjoyable experience to everyone.\nHelp us do this by following our
+        code of conduct: https://pycon.africa/conduct
     </string>
 
 </resources>

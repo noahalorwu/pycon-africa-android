@@ -4,6 +4,7 @@ import africa.pycon.pyconafrica.extensions.browseCustomTab
 import africa.pycon.pyconafrica.extensions.toast
 import africa.pycon.pyconafrica.socialmedia.Facebook
 import africa.pycon.pyconafrica.socialmedia.PyAfricaWebsite
+import africa.pycon.pyconafrica.sponsors.SponsorFragment
 import android.os.Bundle
 import androidx.core.view.GravityCompat
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -93,7 +94,7 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             }
             R.id.nav_sponsors -> {
                 supportActionBar?.title = "Sponsors"
-                toast("$item + tapped")
+                setFragment(SponsorFragment())
             }
 
             R.id.nav_socialmedia -> {

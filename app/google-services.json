@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "453602655181",
+    "firebase_url": "https://pyconafrica-71519.firebaseio.com",
+    "project_id": "pyconafrica-71519",
+    "storage_bucket": "pyconafrica-71519.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453602655181:android:edc2bb7858a93488",
+        "android_client_info": {
+          "package_name": "africa.pycon.pyconafrica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "453602655181-m5tc4nng8ks4a30hla8c1sr2vft5pq89.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "africa.pycon.pyconafrica",
+            "certificate_hash": "a41e7ecdb97c8dc87522e2cf62dc223061d8a43e"
+          }
+        },
+        {
+          "client_id": "453602655181-8a5v3n5jg7bv08dn0upkp5lprsuutrav.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJftiO2prXqoTBv55Mql3fuc6VNK_qo80"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "453602655181-8a5v3n5jg7bv08dn0upkp5lprsuutrav.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

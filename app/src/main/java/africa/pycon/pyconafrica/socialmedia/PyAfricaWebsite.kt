@@ -47,7 +47,7 @@ class PyAfricaWebsite : Fragment() {
             R.drawable.forwardarrow
         ))
         bottomNavigation.setOnShowListener {
-            val name = when (it.id) {
+            when (it.id) {
                 ID_RELOAD -> "Reload"
                 ID_BACK -> "Back"
                 ID_FORWARD -> "Forward"
