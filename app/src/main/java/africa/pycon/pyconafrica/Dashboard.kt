@@ -115,6 +115,7 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
             R.id.nav_todo -> {
                 supportActionBar?.title = "To-Do"
+                setFragment(TodosFragment())
             }
 
             R.id.nav_back -> {
