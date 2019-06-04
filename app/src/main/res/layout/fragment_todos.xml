@@ -13,14 +13,42 @@
             android:padding="10sp"
     />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/goback_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@drawable/ic_arrow_left"
+            app:backgroundTint="@color/colorPrimary"
+            android:visibility="gone"
 
+    />
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:id="@+id/note_scroll"
+            android:background="#fff"
+            android:padding="10sp"
+    >
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/note_content"
+                android:textSize="14sp"
+                android:textColor="#000"
+        />
+    </androidx.core.widget.NestedScrollView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_todo_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_input_add"
+            app:srcCompat="@drawable/ic_add"
+            app:backgroundTint="@color/colorPrimary"
 
     />
 

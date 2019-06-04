@@ -30,4 +30,8 @@
     <string name="maps">https://goo.gl/maps/xzvxYpwpAbCLgYMFA</string>
     <string name="venueLocation">Bank of Ghana Auditorium</string>
     <string name="title_activity_todos">Todos</string>
+    <string name="lbl_new_todo_title">New Todo</string>
+    <string name="lbl_edit_todo_title">Edit Todo</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
 </resources>

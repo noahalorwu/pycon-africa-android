@@ -33,8 +33,6 @@ class TodosAdapter internal constructor(private val todosList: ArrayList<Todo>, 
         fun bindItems(todoItem: Todo) {
             val title: TextView = itemView.findViewById(R.id.todos_title)
             val dateTime: TextView = itemView.findViewById(R.id.todos_date_time)
-            val editButton: ImageView = itemView.findViewById(R.id.edit_todo)
-            val deleteButton: ImageView = itemView.findViewById(R.id.delete_todo)
             title.text = todoItem.title
             dateTime.text = todoItem.timestamp
         }
@@ -49,11 +47,11 @@ class TodosAdapter internal constructor(private val todosList: ArrayList<Todo>, 
         holder.bindItems(todoItem)
 
         holder.itemView.todoLinearLayout.setOnClickListener({ if (listener != null) {
-            listener!!.onItemClick(todoItem, position)
+            listener!!.onItemClick(todoItem)
         } })
 
         holder.itemView.edit_todo.setOnClickListener({ if (listener != null) {
-            listener!!.onItemEdit(todoItem)
+            listener!!.onItemEdit(todoItem, position)
         } })
 
         holder.itemView.delete_todo.setOnClickListener({ if (listener != null) {
@@ -63,8 +61,8 @@ class TodosAdapter internal constructor(private val todosList: ArrayList<Todo>, 
     }
 
     interface OnClickListener {
-        fun onItemClick(todo: Todo, position: Int)
+        fun onItemClick(todo: Todo)
         fun onItemDelete(todo: Todo)
-        fun onItemEdit(todo: Todo)
+        fun onItemEdit(todo: Todo, position: Int)
     }
 }
