@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import africa.pycon.pyconafrica.R
 import africa.pycon.pyconafrica.extensions.toast
+import android.app.Application
 import android.content.Intent
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -23,6 +24,12 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.DataSnapshot
 
+class MyApp : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
+    }
+}
 class SponsorFragment : Fragment() {
     lateinit var mrecylerview: RecyclerView
     lateinit var ref: DatabaseReference
@@ -34,7 +41,6 @@ class SponsorFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_sponsor, container, false)
-//        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
         ref = FirebaseDatabase.getInstance().reference.child("Sponsors")
         mrecylerview = view.findViewById(R.id.reyclerview)
         mprogress = view.findViewById(R.id.load_sponsors)
@@ -88,6 +94,7 @@ class SponsorFragment : Fragment() {
                             intent.putExtra("sponsorName", model.sponsorName)
                             intent.putExtra("sponsorPackage", model.sponsorPackage)
                             intent.putExtra("sponsorLogo", model.sponsorLogo)
+                            intent.putExtra("sponsorDescription", model.sponsorDescription)
                             context?.startActivity(intent)
                         } }
                 })
