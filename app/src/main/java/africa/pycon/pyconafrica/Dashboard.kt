@@ -4,6 +4,7 @@ import africa.pycon.pyconafrica.extensions.browseCustomTab
 import africa.pycon.pyconafrica.extensions.toast
 import africa.pycon.pyconafrica.socialmedia.Facebook
 import africa.pycon.pyconafrica.socialmedia.PyAfricaWebsite
+import africa.pycon.pyconafrica.sponsors.SponsorFragment
 import android.os.Bundle
 import androidx.core.view.GravityCompat
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -14,13 +15,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import androidx.fragment.app.Fragment
+import com.crashlytics.android.Crashlytics
+import io.fabric.sdk.android.Fabric
 
 class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
-
+        Fabric.with(this, Crashlytics())
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -36,7 +39,8 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
         // Inflate the General Info fragment onCreate
         supportFragmentManager.beginTransaction()
-            .add(R.id.main_container, GeneralInfo())
+            .replace(R.id.main_container, GeneralInfo())
+            .addToBackStack(null)
             .commit()
         supportActionBar?.title = "General Info"
     }
@@ -85,7 +89,6 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             }
             R.id.nav_schedules -> {
                 supportActionBar?.title = "Schedules"
-                toast("$item + tapped")
             }
             R.id.nav_specialevents -> {
                 supportActionBar?.title = "Special Events"
@@ -93,7 +96,7 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             }
             R.id.nav_sponsors -> {
                 supportActionBar?.title = "Sponsors"
-                toast("$item + tapped")
+                setFragment(SponsorFragment())
             }
 
             R.id.nav_socialmedia -> {
