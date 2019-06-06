@@ -25,6 +25,7 @@ class SponsorDetailActivity : AppCompatActivity() {
         sPackage.text = sponsorLevel
         when (sponsorLevel) {
             "Bronze" -> packageColor(sPackage, "#22aadd")
+            "Silver" -> packageColor(sPackage, "#FF5252")
             "Diamond" -> packageColor(sPackage, "#FFD34A")
             "Platinum" -> packageColor(sPackage, "#FF5722")
             "Headline" -> packageColor(sPackage, "#E91E63")

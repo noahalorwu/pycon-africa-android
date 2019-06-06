@@ -15,13 +15,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import androidx.fragment.app.Fragment
+import com.crashlytics.android.Crashlytics
+import io.fabric.sdk.android.Fabric
 
 class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
-
+        Fabric.with(this, Crashlytics())
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -37,7 +39,8 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
         // Inflate the General Info fragment onCreate
         supportFragmentManager.beginTransaction()
-            .add(R.id.main_container, GeneralInfo())
+            .replace(R.id.main_container, GeneralInfo())
+            .addToBackStack(null)
             .commit()
         supportActionBar?.title = "General Info"
     }
@@ -86,7 +89,6 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             }
             R.id.nav_schedules -> {
                 supportActionBar?.title = "Schedules"
-                toast("$item + tapped")
             }
             R.id.nav_specialevents -> {
                 supportActionBar?.title = "Special Events"

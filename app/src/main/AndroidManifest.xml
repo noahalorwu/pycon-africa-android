@@ -17,11 +17,14 @@
             android:name=".sponsors.MyApp"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
-                android:name=".sponsors.SponsorDetailActivity">
+                android:name=".sponsors.SponsorDetailActivity"
+                android:screenOrientation="portrait"
+        >
         </activity>
         <activity
                 android:name=".Dashboard"
                 android:label="@string/title_activity_dashboard"
+                android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
@@ -33,6 +36,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <meta-data
+        android:name="firebase_crashlytics_collection_enabled"
+        android:value="false"
+        >
+
+        </meta-data>
     </application>
 
 </manifest>
