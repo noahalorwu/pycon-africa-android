@@ -14,7 +14,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -47,7 +46,9 @@ class TodosFragment : Fragment(), TodosAdapter.OnClickListener {
         noteContentTextView = view.findViewById(R.id.note_content)
         backButton = view.findViewById(R.id.goback_fab)
 
-        addButton.setOnClickListener {showNoteDialog(false, null, -1)}
+        addButton.setOnClickListener {
+            showNoteDialog(false, null, -1)
+        }
         backButton.setOnClickListener {
             scrollView.visibility = View.GONE
             backButton.visibility = View.GONE
@@ -76,14 +77,12 @@ class TodosFragment : Fragment(), TodosAdapter.OnClickListener {
 
     @SuppressLint("RestrictedApi")
     override fun onItemClick(todo: Todo) {
-        val note: String = "${todo.title}\n\n${todo.desc}"
-        //Display Note
+        val note = "${todo.title}\n\n${todo.desc}"
         todosRecycler.visibility = View.GONE
         addButton.visibility = View.GONE
         scrollView.visibility = View.VISIBLE
         backButton.visibility = View.VISIBLE
         noteContentTextView.text = note
-
     }
 
     override fun onItemEdit(todo: Todo, position: Int) {
@@ -108,7 +107,7 @@ class TodosFragment : Fragment(), TodosAdapter.OnClickListener {
     }
 
     private fun showNoteDialog(shouldUpdate: Boolean, todo: Todo?, position: Int) {
-        val view = activity?.layoutInflater?.inflate(R.layout.add_todo,null)
+        val view = activity?.layoutInflater?.inflate(R.layout.add_todo, null)
 
         val alertDialogView = AlertDialog.Builder(context ?: return).create()
         alertDialogView.setView(view)
@@ -130,7 +129,7 @@ class TodosFragment : Fragment(), TodosAdapter.OnClickListener {
             val descName = edDesc?.text.toString()
 
             if (TextUtils.isEmpty(tName)) {
-               context?.toast("Enter Note Title")
+                context?.toast("Enter Note Title")
                 return@OnClickListener
             } else if (TextUtils.isEmpty(descName)) {
                 context?.toast("Enter Your Description!")
@@ -138,9 +137,9 @@ class TodosFragment : Fragment(), TodosAdapter.OnClickListener {
             }
             // check if user updating Todos
             if (shouldUpdate && todo != null) {
-                updateNote(Todo(tName, descName), position)      // update note by it's id
+                updateNote(Todo(tName, descName), position)
             } else {
-                createNote(Todo(tName, descName))   // create new note
+                createNote(Todo(tName, descName))
             }
             alertDialogView.dismiss()
         })
@@ -148,7 +147,8 @@ class TodosFragment : Fragment(), TodosAdapter.OnClickListener {
         btCancel?.setOnClickListener {
             alertDialogView.dismiss()
         }
-        tvHeader?.text = if (!shouldUpdate) getString(R.string.lbl_new_todo_title) else getString(R.string.lbl_edit_todo_title)
+        tvHeader?.text = if (!shouldUpdate) getString(R.string.lbl_new_todo_title)
+        else getString(R.string.lbl_edit_todo_title)
 
         alertDialogView.setCancelable(false)
         alertDialogView.show()
@@ -156,10 +156,10 @@ class TodosFragment : Fragment(), TodosAdapter.OnClickListener {
 
     private fun updateNote(t: Todo, position: Int) {
         val todo = todoList[position]
-        todo.title = t.title    // updating title
-        todo.desc = t.desc  // updating description
-        dbHelper!!.updateTodo(todo) // updating note in db
-        todoList[position] = todo  // refreshing the list
+        todo.title = t.title
+        todo.desc = t.desc
+        dbHelper!!.updateTodo(todo)
+        todoList[position] = todo
         myAdapter!!.notifyItemChanged(position)
     }
 }

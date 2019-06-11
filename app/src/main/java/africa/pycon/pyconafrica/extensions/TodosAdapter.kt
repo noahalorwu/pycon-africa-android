@@ -6,13 +6,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.todos_item_layout.view.*
 
-
-class TodosAdapter internal constructor(private val todosList: ArrayList<Todo>, private val context: Context?) :
+class TodosAdapter internal constructor(
+    private val todosList: ArrayList<Todo>,
+    private val context: Context?
+) :
     RecyclerView.Adapter<TodosAdapter.TodosViewHolder>() {
 
     private var listener: OnClickListener? = null
@@ -22,9 +23,9 @@ class TodosAdapter internal constructor(private val todosList: ArrayList<Todo>, 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
-            TodosAdapter.TodosViewHolder {
+            TodosViewHolder {
         val inflatedView = LayoutInflater.from(parent.context).inflate(
-            africa.pycon.pyconafrica.R.layout.todos_item_layout, parent, false)
+            R.layout.todos_item_layout, parent, false)
         return TodosViewHolder(inflatedView)
     }
 
@@ -42,22 +43,21 @@ class TodosAdapter internal constructor(private val todosList: ArrayList<Todo>, 
         return todosList.size
     }
 
-    override fun onBindViewHolder(holder: TodosAdapter.TodosViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TodosViewHolder, position: Int) {
         val todoItem = todosList[position]
         holder.bindItems(todoItem)
 
-        holder.itemView.todoLinearLayout.setOnClickListener({ if (listener != null) {
+        holder.itemView.todoLinearLayout.setOnClickListener { if (listener != null) {
             listener!!.onItemClick(todoItem)
-        } })
+        } }
 
-        holder.itemView.edit_todo.setOnClickListener({ if (listener != null) {
+        holder.itemView.edit_todo.setOnClickListener { if (listener != null) {
             listener!!.onItemEdit(todoItem, position)
-        } })
+        } }
 
-        holder.itemView.delete_todo.setOnClickListener({ if (listener != null) {
+        holder.itemView.delete_todo.setOnClickListener { if (listener != null) {
             listener!!.onItemDelete(todoItem)
-        } })
-
+        } }
     }
 
     interface OnClickListener {

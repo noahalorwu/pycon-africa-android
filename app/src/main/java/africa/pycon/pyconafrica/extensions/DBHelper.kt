@@ -6,8 +6,12 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import africa.pycon.pyconafrica.models.Todo
 
-
-class DBHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class DBHelper(context: Context?) : SQLiteOpenHelper(
+    context,
+    DATABASE_NAME,
+    null,
+    DATABASE_VERSION
+) {
 
     companion object {
         private val DATABASE_VERSION = 1
@@ -24,25 +28,38 @@ class DBHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, nul
 
     // Create table SQL query
     private val CREATE_TABLE = (
-            "CREATE TABLE " + TABLE_NAME + "("
-                    + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + COLUMN_TITLE + " TEXT,"
-                    + COLUMN_DESCRIPTION + " TEXT,"
-                    + COLUMN_TIMESTAMP + " DATETIME DEFAULT CURRENT_TIMESTAMP"
-                    + ")")
+            "CREATE TABLE " +
+                    TABLE_NAME +
+                    "(" + COLUMN_ID +
+                    " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    COLUMN_TITLE +
+                    " TEXT," +
+                    COLUMN_DESCRIPTION +
+                    " TEXT," +
+                    COLUMN_TIMESTAMP +
+                    " DATETIME DEFAULT CURRENT_TIMESTAMP" + ")"
+            )
 
     // 1) Select All Query, 2)looping through all rows and adding to list 3) close db connection, 4) return todos list
     val allNotes: ArrayList<Todo>
         get() {
             val notes = ArrayList<Todo>()
-            val selectQuery = "SELECT  * FROM " + TABLE_NAME + " ORDER BY " + COLUMN_TIMESTAMP + " DESC"
+            val selectQuery = "SELECT  * FROM " +
+                    TABLE_NAME +
+                    " ORDER BY " +
+                    COLUMN_TIMESTAMP +
+                    " DESC"
 
             val db = this.writableDatabase
             val cursor = db.rawQuery(selectQuery, null)
             if (cursor.moveToFirst()) {
                 do {
-                    val todo = Todo(cursor!!.getInt(cursor.getColumnIndex(COLUMN_ID)), cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)),
-                            cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)), cursor.getString(cursor.getColumnIndex(COLUMN_TIMESTAMP)))
+                    val todo = Todo(
+                        cursor!!.getInt(cursor.getColumnIndex(COLUMN_ID)),
+                        cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)),
+                        cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)),
+                        cursor.getString(cursor.getColumnIndex(COLUMN_TIMESTAMP))
+                    )
                     todo.id = cursor.getInt(cursor.getColumnIndex(COLUMN_ID))
                     todo.title = cursor.getString(cursor.getColumnIndex(COLUMN_TITLE))
                     todo.desc = cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION))
@@ -67,30 +84,32 @@ class DBHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, nul
 
     // Creating Tables
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL(CREATE_TABLE)  // create notes table
+        db.execSQL(CREATE_TABLE)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME) // Drop older table if existed
-        onCreate(db)  // Create tables again
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME)
+        onCreate(db)
     }
 
     fun insertTodo(todo: Todo): Long {
-        val db = this.writableDatabase   // get writable database as we want to write data
+        val db = this.writableDatabase
         val values = ContentValues()
-        // `id` and `timestamp` will be inserted automatically, no need to add them
         values.put(COLUMN_TITLE, todo.title)
         values.put(COLUMN_DESCRIPTION, todo.desc)
-        val id = db.insert(TABLE_NAME, null, values)  // insert row
-        db.close() // close db connection
-
-        return id  // return newly inserted row id
+        val id = db.insert(TABLE_NAME, null, values)
+        db.close()
+        return id
     }
 
     fun getTodo(id: Long): Todo {
-        val db = this.readableDatabase    // get readable database as we are not inserting anything
+        val db = this.readableDatabase
         val cursor = db.query(TABLE_NAME,
-                arrayOf(COLUMN_ID, COLUMN_TITLE, COLUMN_DESCRIPTION, COLUMN_TIMESTAMP), COLUMN_ID + "=?",
+                arrayOf(COLUMN_ID,
+                    COLUMN_TITLE,
+                    COLUMN_DESCRIPTION,
+                    COLUMN_TIMESTAMP),
+            COLUMN_ID + "=?",
                 arrayOf(id.toString()), null, null, null, null)
 
         cursor?.moveToFirst()
@@ -100,8 +119,7 @@ class DBHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, nul
                 cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)),
                 cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)),
                 cursor.getString(cursor.getColumnIndex(COLUMN_TIMESTAMP)))
-
-        cursor.close()   // close the db connection
+        cursor.close()
         return todo
     }
 
@@ -110,12 +128,21 @@ class DBHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, nul
         val values = ContentValues()
         values.put(COLUMN_TITLE, todo.title)
         values.put(COLUMN_DESCRIPTION, todo.desc)
-        return db.update(TABLE_NAME, values, COLUMN_ID + " = ?", arrayOf(todo.id.toString()))   // updating row
+        return db.update(
+            TABLE_NAME,
+            values,
+            COLUMN_ID + " = ?",
+            arrayOf(todo.id.toString())
+        )
     }
 
     fun deleteTodo(todo: Todo): Boolean {
-        val db = writableDatabase   // Gets the data repository in write mode
-        db.delete(TABLE_NAME, COLUMN_ID + " LIKE ?", arrayOf(todo.id.toString())) // Issue SQL statement.
+        val db = writableDatabase
+        db.delete(
+            TABLE_NAME,
+            COLUMN_ID + " LIKE ?",
+            arrayOf(todo.id.toString())
+        )
         return true
     }
 }
