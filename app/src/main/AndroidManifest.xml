@@ -9,30 +9,44 @@
     <application
             android:allowBackup="true"
             android:icon="@drawable/ic_launcher"
+            android:fullBackupContent="true"
             android:label="@string/app_name"
             android:roundIcon="@drawable/ic_launcher"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
+            android:name=".sponsors.MyApp"
             tools:ignore="GoogleAppIndexingWarning">
+  
         <activity
                 android:name=".Todos"
                 android:label="@string/title_activity_todos"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
+          <activity
+                android:name=".sponsors.SponsorDetailActivity"
+                android:screenOrientation="portrait">
+        </activity>
         <activity
                 android:name=".Dashboard"
                 android:label="@string/title_activity_dashboard"
+                android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity
-                android:name=".MainActivity"
-                android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".SplashScreen"
+                  android:theme="@style/AppTheme.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <meta-data
+        android:name="firebase_crashlytics_collection_enabled"
+        android:value="false"
+        >
+
+        </meta-data>
     </application>
 
 </manifest>

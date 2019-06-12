@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".sponsors.SponsorDetailActivity"
+>
+
+    <ImageView
+            android:id="@+id/sLogo"
+            android:layout_width="match_parent"
+            android:scaleType="fitCenter"
+            android:layout_height="220dp"
+            android:background="#1A000000"
+            tools:ignore="ContentDescription"
+            tools:layout_editor_absoluteX="-16dp"
+            tools:layout_editor_absoluteY="-23dp"/>
+    <TextView
+            android:id="@+id/sName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sponsor_name"
+            android:paddingTop="20dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+    />
+    <TextView
+            android:id="@+id/sPackage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sponsor_level"
+            android:paddingTop="1dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+    />
+    <TextView
+              android:id="@+id/sDesc"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/about_conference"
+              android:textSize="16sp"
+              android:paddingTop="20dp"
+              android:paddingStart="20dp"
+              android:paddingEnd="20dp"
+              android:autoLink="web"
+              />
+
+</LinearLayout>
