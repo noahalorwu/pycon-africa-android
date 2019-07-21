@@ -2,6 +2,7 @@ package africa.pycon.pyconafrica
 
 import africa.pycon.pyconafrica.extensions.browseCustomTab
 import africa.pycon.pyconafrica.extensions.toast
+import africa.pycon.pyconafrica.schedules.SchedulesFragment
 import africa.pycon.pyconafrica.socialmedia.Facebook
 import africa.pycon.pyconafrica.socialmedia.PyAfricaWebsite
 import africa.pycon.pyconafrica.sponsors.SponsorFragment
@@ -71,9 +72,10 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 //    }
 
     fun setFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.main_container, fragment)
-        transaction.commit()
+        supportFragmentManager.beginTransaction()
+        .replace(R.id.main_container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -89,6 +91,8 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             }
             R.id.nav_schedules -> {
                 supportActionBar?.title = "Schedules"
+                setFragment(SchedulesFragment())
+                item.isChecked = true
             }
             R.id.nav_specialevents -> {
                 supportActionBar?.title = "Special Events"

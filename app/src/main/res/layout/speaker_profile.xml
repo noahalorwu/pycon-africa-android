@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <ImageView
+            android:id="@+id/bgspon"
+            android:layout_width="425dp"
+            android:layout_height="368dp"
+            android:background="@drawable/speakr"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    <ImageView android:layout_width="50dp"
+               android:layout_height="50dp"
+               android:src="@drawable/twitter"
+               android:id="@+id/imageView2"
+               app:layout_constraintTop_toBottomOf="@+id/sName" app:layout_constraintEnd_toEndOf="parent"
+               android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+               android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.498"/>
+    <TextView android:id="@+id/sName"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Noah Alorwu"
+              android:textSize="30dp"
+              android:textStyle="bold"
+              android:paddingStart="20dp"
+              android:paddingEnd="20dp" android:layout_marginEnd="8dp"
+              app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+              app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.497"
+              android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/bgspon"/>
+
+    <TextView android:id="@+id/sProfile"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textSize="30dp"
+              android:paddingStart="20dp"
+              android:paddingEnd="20dp"
+              tools:layout_editor_absoluteX="1dp"
+              android:layout_marginBottom="8dp"
+              app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
+              app:layout_constraintTop_toBottomOf="@+id/imageView2" app:layout_constraintVertical_bias="0.029"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
