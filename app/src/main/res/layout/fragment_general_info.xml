@@ -5,7 +5,6 @@
 >
 
     <data>
-        <import type="africa.pycon.pyconafrica.R"/>
         <variable name="general"
                   type="africa.pycon.pyconafrica.GeneralInfo"/>
     </data>

@@ -1,11 +1,15 @@
 package africa.pycon.pyconafrica.schedules
 
 import africa.pycon.pyconafrica.R
+import africa.pycon.pyconafrica.extensions.browseCustomTab
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_schedule_detail.*
 import kotlinx.android.synthetic.main.speaker_profile.*
+import kotlinx.android.synthetic.main.speaker_profile.view.*
 import java.util.zip.Inflater
 
 class ScheduleDetailActivity : AppCompatActivity() {
@@ -24,22 +28,25 @@ class ScheduleDetailActivity : AppCompatActivity() {
         val speakerName = bundle?.get("speakerName").toString()
         val speakerProfile = bundle?.get("speakerProfile").toString()
         val speakerImg = bundle?.get("speakerImage").toString()
+        val speakerSocial = bundle?.get("speakerTwitter").toString()
         supportActionBar?.title = "Details"
         tvTitle.text = title
         tvDesc.text = talkDesc
         tvLoc.text = talkLoc
         tvStart.text = startTime
         tvEnd.text = endTime
-        sProfileView.text = speakerName
+        sProfileView.text = "View Speakers Profile"
 
         sProfileView.setOnClickListener{
-            val dialogView = layoutInflater.inflate(R.layout.speaker_profile, null)
-            val builder = AlertDialog.Builder(this)
-            builder.setView(dialogView)
-            val alertDialog = builder.create()
-            alertDialog.show()
-            sProfile?.text = speakerProfile
-            sName?.text = speakerName
+            val mDialog = LayoutInflater.from(this).inflate(R.layout.speaker_profile, null)
+            val dialogBuilder = AlertDialog.Builder(this)
+                .setView(mDialog)
+            mDialog.sName.text = speakerName
+            mDialog.sProfile.text = speakerProfile
+            mDialog.connectSpeaker.setOnClickListener{
+                browseCustomTab("https://twitter.com/$speakerSocial")
+            }
+            dialogBuilder.show()
         }
     }
 

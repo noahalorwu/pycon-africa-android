@@ -3,6 +3,7 @@ package africa.pycon.pyconafrica.schedules
 import africa.pycon.pyconafrica.R
 import africa.pycon.pyconafrica.extensions.toast
 import android.app.Application
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -12,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerAdapter
@@ -44,60 +46,9 @@ class SchedulesFragment : Fragment() {
                // val mCalendar:String = mRef.key.toString()
        // mProgress = view.findViewById(R.id.load_schedules)
         mRecylerview.layoutManager = LinearLayoutManager(parentFragment?.context)
+        mRecylerview.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
         mRecylerview.setHasFixedSize(true)
-       //fireBaseData()
         mRef.keepSynced(true)
-        return view
-   }
-    fun fireBaseData() {
-        val option = FirebaseRecyclerOptions.Builder<SchedulesViewModel>()
-            .setQuery(mRef, SchedulesViewModel::class.java)
-            .setLifecycleOwner(this)
-            .build()
-
-        val fireBaseAdapter = object : FirebaseRecyclerAdapter<SchedulesViewModel,
-                ScheduleViewHolder>(option) {
-
-            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleViewHolder {
-                val itemView = LayoutInflater.from(activity)
-                    .inflate(R.layout.schedules_layout,
-                        parent, false)
-
-                return ScheduleViewHolder(itemView)
-            }
-
-            override fun onBindViewHolder(
-                holder: ScheduleViewHolder,
-                position: Int,
-                model: SchedulesViewModel
-            ) { val placeid = getRef(position).key.toString()
-                mRef.child(placeid).addValueEventListener(object : ValueEventListener {
-                    override fun onCancelled(p0: DatabaseError) {
-                        context?.toast("Error loading")
-                    }
-
-                    override fun onDataChange(p0: DataSnapshot) {
-                        holder.tStartTime.text = model.startTime
-                        holder.tEndTime.text = model.endTime
-                        holder.tTitle.text = model.talkTitle
-                        holder.tLocation.text = model.talkLocation
-                    }
-                })
-            }
-        }
-        mRecylerview.adapter = fireBaseAdapter
-        fireBaseAdapter.startListening()
-    }
-
-    class ScheduleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tStartTime: TextView = itemView.findViewById(R.id.start_time)
-        var tEndTime: TextView = itemView.findViewById(R.id.end_time)
-        var tTitle: TextView = itemView.findViewById(R.id.talk_title)
-        var tLocation: TextView = itemView.findViewById(R.id.talk_location)
-    }
-
-    override fun onStart() {
-        super.onStart()
         val startDate: Calendar = Calendar.getInstance()
         startDate.add(Calendar.MONTH, -1)
         val endDate: Calendar = Calendar.getInstance()
@@ -110,73 +61,84 @@ class SchedulesFragment : Fragment() {
         hc.calendarListener = object : HorizontalCalendarListener() {
             override fun onDateSelected(date: Calendar?, position: Int) {
                 val mDate = SimpleDateFormat("dd-MM-yyyy").format(date?.time)
-                val mSchedules: DatabaseReference = mRef.child("Schedules").child(mDate)
-                    val option = FirebaseRecyclerOptions.Builder<SchedulesViewModel>()
-                        .setQuery(mSchedules, SchedulesViewModel::class.java)
-                        .setLifecycleOwner(parentFragment)
-                        .build()
+                val mSchedules = mRef.child("Schedules").child(mDate)
+                val option = FirebaseRecyclerOptions.Builder<SchedulesViewModel>()
+                    .setQuery(mSchedules, SchedulesViewModel::class.java)
+                    .setLifecycleOwner(parentFragment)
+                    .build()
 
-                    val fireBaseAdapter = object : FirebaseRecyclerAdapter<SchedulesViewModel,
-                            ScheduleViewHolder>(option) {
+                val fireBaseAdapter = object : FirebaseRecyclerAdapter<SchedulesViewModel,
+                        ScheduleViewHolder>(option) {
 
-                        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleViewHolder {
-                            val itemView = LayoutInflater.from(activity)
-                                .inflate(
-                                    R.layout.schedules_layout,
-                                    parent, false
-                                )
+                    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleViewHolder {
+                        val itemView = LayoutInflater.from(activity)
+                            .inflate(
+                                R.layout.schedules_layout,
+                                parent, false
+                            )
 
-                            return ScheduleViewHolder(itemView)
-                        }
-
-                        override fun onBindViewHolder(
-                            holder: ScheduleViewHolder,
-                            position: Int,
-                            model: SchedulesViewModel
-                        ) {
-//                            val select = 2
-//                            if(position % select == 0){
-//                                holder.itemView.setBackgroundColor(Color.BLUE)
-//                            }else{
-//                                holder.itemView.setBackgroundColor(Color.BLACK)
-//                            }
-
-                            val placeid = getRef(position).key.toString()
-                            mRef.child(placeid).addValueEventListener(object : ValueEventListener {
-                                override fun onCancelled(p0: DatabaseError) {
-                                    context?.toast("Error loading")
-                                }
-
-                                override fun onDataChange(p0: DataSnapshot) {
-                                    holder.tStartTime.text = model.startTime
-                                    holder.tEndTime.text = model.endTime
-                                    holder.tTitle.text = model.talkTitle
-                                    holder.tLocation.text = model.talkLocation
-                                    holder.itemView.setOnClickListener{
-                                        val intent = Intent(context, ScheduleDetailActivity::class.java)
-                                        intent.putExtra("startTime", model.startTime)
-                                        intent.putExtra("endTime", model.endTime)
-                                        intent.putExtra("talkTitle", model.talkTitle)
-                                        intent.putExtra("talkDescription", model.talkDescription)
-                                        intent.putExtra("talkLocation", model.talkLocation)
-                                        intent.putExtra("speakerName", model.speakerName)
-                                        intent.putExtra("speakerProfile", model.speakerProfile)
-                                        intent.putExtra("speakerImage", model.speakerImage)
-                                        context?.startActivity(intent)
-                                    }
-                                }
-                            })
-                        }
+                        return ScheduleViewHolder(itemView)
                     }
-                    mRecylerview.adapter = fireBaseAdapter
-                    fireBaseAdapter.startListening()
 
+                    override fun onBindViewHolder(
+                        holder: ScheduleViewHolder,
+                        position: Int,
+                        model: SchedulesViewModel
+                    ) {
+                            val select = 2
+                            if(position % select == 1){
+                                holder.itemView.setBackgroundColor(Color.parseColor("#336E99"))
+                            }else{
+                                //Do nothing
+                            }
+
+                        val placeid = getRef(position).key.toString()
+                        mRef.child(placeid).addValueEventListener(object : ValueEventListener {
+                            override fun onCancelled(p0: DatabaseError) {
+                                context?.toast("Error loading")
+                            }
+
+                            override fun onDataChange(p0: DataSnapshot) {
+                                holder.tStartTime.text = model.startTime.toString()
+                                holder.tEndTime.text = model.endTime.toString()
+                                holder.tTitle.text = model.talkTitle.toString()
+                                holder.tLocation.text = model.talkLocation.toString()
+                                holder.itemView.setOnClickListener{
+                                    val intent = Intent(context, ScheduleDetailActivity::class.java)
+                                    intent.putExtra("startTime", model.startTime)
+                                    intent.putExtra("endTime", model.endTime)
+                                    intent.putExtra("talkTitle", model.talkTitle)
+                                    intent.putExtra("talkDescription", model.talkDescription)
+                                    intent.putExtra("talkLocation", model.talkLocation)
+                                    intent.putExtra("speakerName", model.speakerName)
+                                    intent.putExtra("speakerProfile", model.speakerProfile)
+                                    intent.putExtra("speakerTwitter", model.speakerTwitter)
+                                    intent.putExtra("speakerImage", model.speakerImage)
+                                    context?.startActivity(intent)
+                                }
+                            }
+                        })
+                    }
                 }
+                mRecylerview.adapter = fireBaseAdapter
+                fireBaseAdapter.startListening()
+
+            }
 
 
         }
 
 
+        return view
+   }
+
+    class ScheduleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var tStartTime: TextView = itemView.findViewById(R.id.start_time)
+        var tEndTime: TextView = itemView.findViewById(R.id.end_time)
+        var tTitle: TextView = itemView.findViewById(R.id.talk_title)
+        var tLocation: TextView = itemView.findViewById(R.id.talk_location)
     }
+
+
 }
 

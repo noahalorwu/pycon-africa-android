@@ -9,14 +9,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            app:textColorSelected="#FFFF"/>
+            app:textColorSelected="#FFFF" tools:ignore="MissingConstraints"/>
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/schedules_recycler"
             android:layout_width="match_parent"
             android:layout_height="628dp"
             android:scrollbars="vertical"
-            tools:layout_editor_absoluteX="0dp" android:layout_marginTop="16dp"
+            tools:layout_editor_absoluteX="0dp"
             app:layout_constraintTop_toBottomOf="@+id/calendarView"/>
     <TextView
             android:id="@+id/no_event"

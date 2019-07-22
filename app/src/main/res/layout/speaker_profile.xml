@@ -16,7 +16,7 @@
     <ImageView android:layout_width="50dp"
                android:layout_height="50dp"
                android:src="@drawable/twitter"
-               android:id="@+id/imageView2"
+               android:id="@+id/connectSpeaker"
                app:layout_constraintTop_toBottomOf="@+id/sName" app:layout_constraintEnd_toEndOf="parent"
                android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
                android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.498"/>

@@ -8,5 +8,6 @@ data class SchedulesViewModel(
     val talkDescription: String? = null,
     val speakerName: String? = null,
     val speakerImage: String? = null,
-    val speakerProfile: String? = null
+    val speakerProfile: String? = null,
+    val speakerTwitter: String? = null
 )

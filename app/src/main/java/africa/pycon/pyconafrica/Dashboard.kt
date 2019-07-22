@@ -41,7 +41,7 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         // Inflate the General Info fragment onCreate
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_container, GeneralInfo())
-            .addToBackStack(null)
+            //.addToBackStack(null)
             .commit()
         supportActionBar?.title = "General Info"
     }
@@ -101,6 +101,7 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             R.id.nav_sponsors -> {
                 supportActionBar?.title = "Sponsors"
                 setFragment(SponsorFragment())
+                item.isChecked = true
             }
 
             R.id.nav_socialmedia -> {
