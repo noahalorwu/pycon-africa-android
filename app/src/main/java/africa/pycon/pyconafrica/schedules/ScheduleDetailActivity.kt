@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_schedule_detail.*
 import kotlinx.android.synthetic.main.speaker_profile.*
 import kotlinx.android.synthetic.main.speaker_profile.view.*
@@ -41,6 +42,7 @@ class ScheduleDetailActivity : AppCompatActivity() {
             val mDialog = LayoutInflater.from(this).inflate(R.layout.speaker_profile, null)
             val dialogBuilder = AlertDialog.Builder(this)
                 .setView(mDialog)
+            Glide.with(this).load(speakerImg).into(mDialog.profile_image)
             mDialog.sName.text = speakerName
             mDialog.sProfile.text = speakerProfile
             mDialog.connectSpeaker.setOnClickListener{
