@@ -23,7 +23,7 @@ class GeneralInfo : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding:FragmentGeneralInfoBinding =
+        val binding: FragmentGeneralInfoBinding =
             DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_general_info,

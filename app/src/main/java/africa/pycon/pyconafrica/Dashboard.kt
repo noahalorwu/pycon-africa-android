@@ -41,7 +41,6 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         // Inflate the General Info fragment onCreate
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_container, GeneralInfo())
-            //.addToBackStack(null)
             .commit()
         supportActionBar?.title = "General Info"
     }
