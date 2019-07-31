@@ -72,7 +72,10 @@ class TodosFragment : Fragment(), TodosAdapter.OnClickListener {
     }
 
     override fun onItemDelete(todo: Todo) {
-        deleteConfirmation(todo)
+//        deleteConfirmation(todo)
+        dbHelper!!.deleteTodo(todo)
+        todoList.remove(todo)
+        myAdapter!!.notifyDataSetChanged()
     }
 
     @SuppressLint("RestrictedApi")
@@ -94,7 +97,7 @@ class TodosFragment : Fragment(), TodosAdapter.OnClickListener {
         alertDialog.setTitle("Confirm Delete...")
         alertDialog.setMessage("Are you sure you want to delete this?")
         alertDialog.setIcon(R.drawable.ic_delete)
-        alertDialog.setPositiveButton("YES") { dialog, which ->
+        alertDialog.setPositiveButton("YES") { _, _ ->
             dbHelper!!.deleteTodo(todo)
             todoList.remove(todo)
             myAdapter!!.notifyDataSetChanged() // refreshing the list
@@ -106,6 +109,7 @@ class TodosFragment : Fragment(), TodosAdapter.OnClickListener {
         alertDialog.show()
     }
 
+    @SuppressLint("InflateParams")
     private fun showNoteDialog(shouldUpdate: Boolean, todo: Todo?, position: Int) {
         val view = activity?.layoutInflater?.inflate(R.layout.add_todo, null)
 
@@ -114,32 +118,33 @@ class TodosFragment : Fragment(), TodosAdapter.OnClickListener {
 
         val tvHeader = view?.findViewById<TextView>(R.id.tvHeader)
         val edTitle = view?.findViewById<EditText>(R.id.edTitle)
-        val edDesc = view?.findViewById<EditText>(R.id.edDesc)
+//        val edDesc = view?.findViewById<EditText>(R.id.edDesc)
         val btAddUpdate = view?.findViewById<Button>(R.id.btAddUpdate)
         val btCancel = view?.findViewById<Button>(R.id.btCancel)
         if (shouldUpdate) btAddUpdate?.text = "Update" else btAddUpdate?.text = "Save"
 
         if (shouldUpdate && todo != null) {
             edTitle?.setText(todo.title)
-            edDesc?.setText(todo.desc)
+//            edDesc?.setText(todo.desc)
         }
 
         btAddUpdate?.setOnClickListener(View.OnClickListener {
             val tName = edTitle?.text.toString()
-            val descName = edDesc?.text.toString()
+//            val descName = edDesc?.text.toString()
 
             if (TextUtils.isEmpty(tName)) {
                 context?.toast("Enter Note Title")
                 return@OnClickListener
-            } else if (TextUtils.isEmpty(descName)) {
-                context?.toast("Enter Your Description!")
-                return@OnClickListener
             }
+//            else if (TextUtils.isEmpty(descName)) {
+//                context?.toast("Enter Your Description!")
+//                return@OnClickListener
+//            }
             // check if user updating Todos
             if (shouldUpdate && todo != null) {
-                updateNote(Todo(tName, descName), position)
+                updateNote(Todo(tName, "descName"), position)
             } else {
-                createNote(Todo(tName, descName))
+                createNote(Todo(tName, "descName"))
             }
             alertDialogView.dismiss()
         })

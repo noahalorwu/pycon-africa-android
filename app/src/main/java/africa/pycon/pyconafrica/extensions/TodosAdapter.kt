@@ -47,13 +47,13 @@ class TodosAdapter internal constructor(
         val todoItem = todosList[position]
         holder.bindItems(todoItem)
 
-        holder.itemView.todoLinearLayout.setOnClickListener { if (listener != null) {
-            listener!!.onItemClick(todoItem)
-        } }
+//        holder.itemView.todoLinearLayout.setOnClickListener { if (listener != null) {
+//            listener!!.onItemClick(todoItem)
+//        } }
 
-        holder.itemView.edit_todo.setOnClickListener { if (listener != null) {
-            listener!!.onItemEdit(todoItem, position)
-        } }
+//        holder.itemView.edit_todo.setOnClickListener { if (listener != null) {
+//            listener!!.onItemEdit(todoItem, position)
+//        } }
 
         holder.itemView.delete_todo.setOnClickListener { if (listener != null) {
             listener!!.onItemDelete(todoItem)

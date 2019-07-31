@@ -29,20 +29,20 @@
         android:inputType="textCapWords"
         android:textColor="@android:color/black" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/description"
-        android:textColor="@android:color/black" />
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/description"-->
+        <!--android:textColor="@android:color/black" />-->
 
-    <EditText
-        android:id="@+id/edDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter note description"
-        android:inputType="textMultiLine|textCapSentences"
-        android:maxLines="8"
-        android:textColor="@android:color/black" />
+    <!--<EditText-->
+        <!--android:id="@+id/edDesc"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="Enter note description"-->
+        <!--android:inputType="textMultiLine|textCapSentences"-->
+        <!--android:maxLines="8"-->
+        <!--android:textColor="@android:color/black" />-->
 
     <LinearLayout
         android:layout_width="match_parent"

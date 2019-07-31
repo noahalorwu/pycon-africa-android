@@ -51,13 +51,13 @@
                 android:layout_weight="2"
                 android:layout_gravity="center_vertical"
         >
-            <ImageView
-                    android:layout_width="20sp"
-                    android:layout_height="20sp"
-                    android:src="@drawable/ic_edit"
-                    android:id="@+id/edit_todo"
-                    android:layout_marginRight="15sp"
-            />
+            <!--<ImageView-->
+                    <!--android:layout_width="20sp"-->
+                    <!--android:layout_height="20sp"-->
+                    <!--android:src="@drawable/ic_edit"-->
+                    <!--android:id="@+id/edit_todo"-->
+                    <!--android:layout_marginRight="15sp"-->
+            <!--/>-->
             <ImageView
                     android:layout_width="20sp"
                     android:layout_height="20sp"
