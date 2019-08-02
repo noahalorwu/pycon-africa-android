@@ -20,6 +20,11 @@
         <activity android:name=".schedules.ScheduleDetailActivity">
         </activity>
         <activity
+                android:name=".Todos"
+                android:label="@string/title_activity_todos"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+          <activity
                 android:name=".sponsors.SponsorDetailActivity"
                 android:screenOrientation="portrait">
         </activity>
@@ -29,9 +34,11 @@
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
+  
         <activity
                 android:name=".SplashScreen"
                 android:theme="@style/AppTheme.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
