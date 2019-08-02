@@ -50,5 +50,6 @@
     <string name="gen_info">General Information</string>
     <string name="sponsor_level">Bronze</string>
     <string name="sponsor_name">Real Python</string>
+    <string name="hint_todo">What do you have to do?</string>
 
 </resources>

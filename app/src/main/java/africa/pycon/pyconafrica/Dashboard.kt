@@ -2,6 +2,7 @@ package africa.pycon.pyconafrica
 
 import africa.pycon.pyconafrica.extensions.browseCustomTab
 import africa.pycon.pyconafrica.extensions.toast
+import africa.pycon.pyconafrica.todos.TodosFragment
 import africa.pycon.pyconafrica.socialmedia.Facebook
 import africa.pycon.pyconafrica.socialmedia.PyAfricaWebsite
 import africa.pycon.pyconafrica.sponsors.SponsorFragment
@@ -118,6 +119,7 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             R.id.nav_todo -> {
                 supportActionBar?.title = "To-Do"
                 setFragment(TodosFragment())
+                item.isChecked = true
             }
 
             R.id.nav_back -> {

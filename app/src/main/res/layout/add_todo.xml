@@ -15,17 +15,12 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="30sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/title"
-        android:textColor="@android:color/black" />
 
     <EditText
         android:id="@+id/edTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter title"
+        android:hint="@string/hint_todo"
         android:inputType="textCapWords"
         android:textColor="@android:color/black" />
 

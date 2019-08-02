@@ -4,7 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import africa.pycon.pyconafrica.models.Todo
+import africa.pycon.pyconafrica.todos.Todo
 
 class DBHelper(context: Context?) : SQLiteOpenHelper(
     context,

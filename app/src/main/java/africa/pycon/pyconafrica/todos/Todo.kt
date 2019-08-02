@@ -1,4 +1,4 @@
-package africa.pycon.pyconafrica.models
+package africa.pycon.pyconafrica.todos
 
 import java.io.Serializable
 

@@ -1,7 +1,7 @@
 package africa.pycon.pyconafrica.extensions
 
 import africa.pycon.pyconafrica.R
-import africa.pycon.pyconafrica.models.Todo
+import africa.pycon.pyconafrica.todos.Todo
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View

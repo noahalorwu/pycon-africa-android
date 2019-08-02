@@ -58,11 +58,13 @@
                     <!--android:id="@+id/edit_todo"-->
                     <!--android:layout_marginRight="15sp"-->
             <!--/>-->
+
             <ImageView
+                    android:id="@+id/delete_todo"
                     android:layout_width="20sp"
                     android:layout_height="20sp"
                     android:src="@drawable/ic_delete"
-                    android:id="@+id/delete_todo"
+
             />
         </LinearLayout>
     </LinearLayout>

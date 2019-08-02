@@ -1,9 +1,9 @@
-package africa.pycon.pyconafrica
+package africa.pycon.pyconafrica.todos
 
+import africa.pycon.pyconafrica.R
 import africa.pycon.pyconafrica.extensions.DBHelper
 import africa.pycon.pyconafrica.extensions.TodosAdapter
 import africa.pycon.pyconafrica.extensions.toast
-import africa.pycon.pyconafrica.models.Todo
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.TextUtils
