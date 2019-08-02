@@ -1,10 +1,10 @@
 package africa.pycon.pyconafrica
 
 import africa.pycon.pyconafrica.extensions.browseCustomTab
-import africa.pycon.pyconafrica.extensions.toast
 import africa.pycon.pyconafrica.schedules.SchedulesFragment
 import africa.pycon.pyconafrica.socialmedia.Facebook
 import africa.pycon.pyconafrica.socialmedia.PyAfricaWebsite
+import africa.pycon.pyconafrica.specialevents.SpecialEvent
 import africa.pycon.pyconafrica.sponsors.SponsorFragment
 import android.os.Bundle
 import androidx.core.view.GravityCompat
@@ -95,7 +95,8 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             }
             R.id.nav_specialevents -> {
                 supportActionBar?.title = "Special Events"
-                toast("$item + tapped")
+                setFragment(SpecialEvent())
+                item.isChecked = true
             }
             R.id.nav_sponsors -> {
                 supportActionBar?.title = "Sponsors"

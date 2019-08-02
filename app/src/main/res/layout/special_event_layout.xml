@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="10dp"
+        android:paddingTop="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+    >
+        <ImageView
+                android:id="@+id/event_header"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/schedulebg"
+                android:scaleType="centerCrop"
+        />
+        <TextView
+                android:id="@+id/event_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Surfing at Labadi"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_below="@id/event_header"
+                android:layout_marginTop="11dp"/>
+        <TextView
+                android:id="@+id/event_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4:08:2019"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@id/event_title"
+        />
+
+        <TextView
+                android:id="@+id/event_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5:00pm"
+                android:layout_toRightOf="@id/event_date"
+                android:layout_alignBaseline="@id/event_date"
+                android:layout_marginLeft="251dp"/>
+
+        <TextView
+                android:id="@+id/event_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_below="@id/event_date"
+                android:layout_marginTop="3dp"/>
+
+        <Button
+                android:id="@+id/event_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="visit location"
+                android:textAllCaps="false"
+                android:layout_marginStart="260dp"
+                android:layout_below="@id/event_desc"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="11dp"
+                android:layout_marginTop="0dp"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

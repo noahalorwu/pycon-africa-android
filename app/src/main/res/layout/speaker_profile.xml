@@ -4,7 +4,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
     <ImageView
             android:id="@+id/bgspon"
             android:layout_width="420dp"
@@ -62,19 +62,19 @@
               android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/bgspon"
               android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/connectSpeaker"
               app:layout_constraintVertical_bias="1.0"/>
-        <TextView android:id="@+id/sProfile"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:textSize="20sp"
-                  android:text="fgfgsrrrrtrtrtrtrtrtrtrtrtrtrtrtrtrtrtrtrtrtrtrtrtrttrtrtrtrtrtrtr"
-                  android:paddingStart="20dp"
-                  android:paddingEnd="20dp"
-                  android:scrollbars="vertical"
-                  android:autoSizeTextType="uniform"
-                  app:layout_constraintTop_toBottomOf="@+id/connectSpeaker"
-                  app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"
-                  app:layout_constraintVertical_bias="0.041"
-                  app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-                  app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.375"/>
+    <TextView android:id="@+id/sProfile"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textSize="15sp"
+              android:text="fgfgsrrrrtrtrtrtrtrtrtrtrtrtrtrtrtrtrtrtrtrtrtrtrtrttrtrtrtrtrtrtr"
+              android:layout_margin="20dp"
+              android:scrollbars="vertical"
+              android:scrollbarStyle="insideOverlay"
+              android:autoSizeTextType="uniform"
+              app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="200dp"
+              app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+              app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
+              android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/connectSpeaker"
+              app:layout_constraintVertical_bias="0.014"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

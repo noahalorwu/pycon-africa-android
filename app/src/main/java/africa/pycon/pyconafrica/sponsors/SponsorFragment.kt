@@ -90,11 +90,12 @@ class SponsorFragment : Fragment() {
                                 .load(model.sponsorLogo)
                                 .into(holder.sponsorLogo) }
                         holder.itemView.setOnClickListener {
-                            val intent = Intent(context, SponsorDetailActivity::class.java)
-                            intent.putExtra("sponsorName", model.sponsorName)
-                            intent.putExtra("sponsorPackage", model.sponsorPackage)
-                            intent.putExtra("sponsorLogo", model.sponsorLogo)
-                            intent.putExtra("sponsorDescription", model.sponsorDescription)
+                            val intent = Intent(context, SponsorDetailActivity::class.java).apply {
+                                putExtra("sponsorName", model.sponsorName)
+                                putExtra("sponsorPackage", model.sponsorPackage)
+                                putExtra("sponsorLogo", model.sponsorLogo)
+                                putExtra("sponsorDescription", model.sponsorDescription)
+                            }
                             context?.startActivity(intent)
                         } }
                 })
