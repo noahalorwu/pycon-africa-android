@@ -24,7 +24,7 @@ class GeneralInfo : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_general_info, container, false)
         val generalButton = view.findViewById(R.id.generalBtn) as Button
         val mapButton = view.findViewById(R.id.mapBtn) as Button
-        generalButton.setOnClickListener{
+        generalButton.setOnClickListener {
             showDialog()
         }
         mapButton.setOnClickListener {
