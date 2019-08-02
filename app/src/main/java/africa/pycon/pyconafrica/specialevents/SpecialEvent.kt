@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import africa.pycon.pyconafrica.R
+import africa.pycon.pyconafrica.extensions.browseCustomTab
 import africa.pycon.pyconafrica.extensions.toast
 import android.widget.Button
 import android.widget.ImageView
@@ -76,7 +77,10 @@ class SpecialEvent : Fragment() {
                         holder.eDate.text = model.eventDate.toString()
                         holder.eTime.text = model.eventTime.toString()
                         holder.eDesc.text = model.eventDesc.toString()
-                        holder.eLink.text = model.eventLocation.toString()
+                        val link = model.eventLocation.toString()
+                        holder.eLink.setOnClickListener {
+                            context?.browseCustomTab(link)
+                        }
                         context?.let {
                             Glide.with(it)
                                 .load(model.eventImg)

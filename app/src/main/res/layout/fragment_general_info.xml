@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools">
-    <data>
-        <variable
-                name="general"
-                type="africa.pycon.pyconafrica.GeneralInfo"/>
-    </data>
     <ScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true"
@@ -23,14 +17,13 @@
                 android:src="@drawable/navhead"
         />
         <Button
-                android:id="@+id/btn"
+                android:id="@+id/mapBtn"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="202dp"
                 android:background="#FFFFFF"
                 android:text="@string/venueLocation"
                 android:textAllCaps="false"
-                android:onClick="@{()->general.openMaps()}"
                 android:drawableStart="@drawable/mlocation"
                 android:paddingStart="30dp"
                 android:paddingEnd="30dp"
@@ -38,12 +31,12 @@
 
         />
         <Button
+                android:id="@+id/generalBtn"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="255dp"
                 android:background="#FFFFFF"
                 android:text="@string/gen_info"
-                android:onClick="@{()->general.showDialog()}"
                 android:textAllCaps="false"
                 android:paddingStart="30dp"
                 android:paddingEnd="30dp"
@@ -65,4 +58,3 @@
 
     </FrameLayout>
     </ScrollView>
-</layout>

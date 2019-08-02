@@ -37,7 +37,7 @@
                 android:text="4:08:2019"
                 android:layout_marginLeft="10dp"
                 android:layout_below="@id/event_title"
-        />
+                android:layout_marginTop="0dp"/>
 
         <TextView
                 android:id="@+id/event_time"
@@ -46,7 +46,7 @@
                 android:text="5:00pm"
                 android:layout_toRightOf="@id/event_date"
                 android:layout_alignBaseline="@id/event_date"
-                android:layout_marginLeft="251dp"/>
+                android:layout_marginLeft="212dp"/>
 
         <TextView
                 android:id="@+id/event_desc"

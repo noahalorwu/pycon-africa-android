@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
-
 <FrameLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".socialmedia.PyAfricaWebsite">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".socialmedia.PyAfricaWebsite">
 
    <ProgressBar
            android:id="@+id/load_page"
@@ -32,5 +30,3 @@
            app:mbn_selectedIconColor="@color/colorAccent"
            app:mbn_shadowColor="#1f212121"/>
 </FrameLayout>
-
-</layout>

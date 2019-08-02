@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import africa.pycon.pyconafrica.databinding.FragmentGeneralInfoBinding
 import africa.pycon.pyconafrica.extensions.browseCustomTab
 import africa.pycon.pyconafrica.extensions.toast
 import android.annotation.SuppressLint
@@ -23,13 +21,16 @@ class GeneralInfo : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentGeneralInfoBinding =
-            DataBindingUtil.inflate(
-            inflater,
-            R.layout.fragment_general_info,
-            container, false)
-        binding.general = this
-        return binding.root
+        val view: View = inflater.inflate(R.layout.fragment_general_info, container, false)
+        val generalButton = view.findViewById(R.id.generalBtn) as Button
+        val mapButton = view.findViewById(R.id.mapBtn) as Button
+        generalButton.setOnClickListener{
+            showDialog()
+        }
+        mapButton.setOnClickListener {
+            openMaps()
+        }
+        return view
     }
     fun openMaps() {
         context?.browseCustomTab(getString(R.string.maps))
@@ -47,7 +48,7 @@ class GeneralInfo : Fragment() {
         val dialogView = inflater?.inflate(R.layout.general_info_dialog_layout, null)
         val builder = AlertDialog.Builder(activity)
         builder.setView(dialogView)
-        val copyButton = dialogView?.findViewById<Button>(R.id.copy_button)
+        val copyButton = dialogView?.findViewById(R.id.copy_button) as Button
         val alertDialog = builder.create()
         alertDialog.show()
 
