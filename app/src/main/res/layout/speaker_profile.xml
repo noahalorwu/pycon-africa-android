@@ -5,6 +5,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
     <ImageView
             android:id="@+id/bgspon"
             android:layout_width="420dp"
@@ -27,16 +28,6 @@
             app:layout_constraintStart_toStartOf="@+id/bgspon" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="@+id/bgspon" app:layout_constraintBottom_toBottomOf="@+id/bgspon"
             app:layout_constraintHorizontal_bias="0.562" app:layout_constraintVertical_bias="0.504"/>
-
-    <ImageView android:layout_width="47dp"
-               android:layout_height="53dp"
-               android:src="@drawable/twitter"
-               android:id="@+id/connectSpeaker"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-               app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="372dp"
-               app:layout_constraintHorizontal_bias="0.488"
-    />
     <ImageView
             android:id="@+id/close_btn"
             android:layout_width="32dp"
@@ -45,26 +36,30 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.977"
-            app:layout_constraintTop_toTopOf="@+id/bgspon"/>
-
+            android:layout_marginBottom="152dp" app:layout_constraintBottom_toBottomOf="@+id/bgspon"/>
     <TextView android:id="@+id/sName"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:text="Noah Alorwu"
-              app:autoSizeTextType="uniform"
-              app:autoSizeMinTextSize="12sp"
-              app:autoSizeMaxTextSize="100sp"
-              app:autoSizeStepGranularity="2sp"
+              android:textSize="20sp"
               android:textStyle="bold"
-              android:paddingStart="20dp"
-              android:paddingEnd="20dp"
+
+
               android:layout_marginEnd="8dp"
               app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-              app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintHorizontal_bias="0.497"
-              android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/bgspon"
-              android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/connectSpeaker"
-              app:layout_constraintVertical_bias="1.0"/>
+              app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+              app:layout_constraintTop_toBottomOf="@+id/bgspon"/>
+
+    <ImageView android:layout_width="47dp"
+               android:layout_height="53dp"
+               android:src="@drawable/twitter"
+               android:id="@+id/connectSpeaker"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+               app:layout_constraintHorizontal_bias="0.488"
+               android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/sName"/>
+
+
     <TextView android:id="@+id/sProfile"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
@@ -79,6 +74,5 @@
               app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
               app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
               android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/connectSpeaker"
-              app:layout_constraintVertical_bias="0.014"/>
-
+              app:layout_constraintVertical_bias="1.0"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

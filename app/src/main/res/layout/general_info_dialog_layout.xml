@@ -23,7 +23,7 @@
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="Registration: Thursday 6 August, 2019"
+              android:text="Registration: Tuesday 6 August, 2019"
               android:textSize="14sp"
               android:id="@+id/registration"
               android:layout_marginBottom="10dp"/>
@@ -38,6 +38,5 @@
             android:textAllCaps="false"
             android:textColor="#FFF"
     />
-
 
 </LinearLayout>
