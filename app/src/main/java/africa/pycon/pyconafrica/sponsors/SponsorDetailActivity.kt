@@ -1,9 +1,9 @@
 package africa.pycon.pyconafrica.sponsors
 
 import africa.pycon.pyconafrica.R
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.toColorInt
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_sponsor_detail.*
@@ -33,11 +33,13 @@ class SponsorDetailActivity : AppCompatActivity() {
         }
         Glide.with(this).load(brandLogo).into(sLogo)
         sDesc.text = sponsorDesc
-        }
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
     }
+
     private fun packageColor(tv: TextView, txtColor: String) {
         tv.setTextColor(txtColor.toColorInt())
     }

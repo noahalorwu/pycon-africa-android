@@ -1,35 +1,24 @@
 package africa.pycon.pyconafrica.sponsors
 
+import africa.pycon.pyconafrica.R
+import africa.pycon.pyconafrica.extensions.toast
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import africa.pycon.pyconafrica.R
-import africa.pycon.pyconafrica.extensions.toast
-import android.app.Application
-import android.content.Intent
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.*
 
-class MyApp : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
-    }
-}
 class SponsorFragment : Fragment() {
     lateinit var mrecylerview: RecyclerView
     lateinit var ref: DatabaseReference
@@ -45,8 +34,12 @@ class SponsorFragment : Fragment() {
         mrecylerview = view.findViewById(R.id.reyclerview)
         mprogress = view.findViewById(R.id.load_sponsors)
         mrecylerview.layoutManager = LinearLayoutManager(parentFragment?.context)
-        mrecylerview.addItemDecoration(DividerItemDecoration(activity!!,
-            DividerItemDecoration.VERTICAL))
+        mrecylerview.addItemDecoration(
+            DividerItemDecoration(
+                activity!!,
+                DividerItemDecoration.VERTICAL
+            )
+        )
         mrecylerview.setHasFixedSize(true)
         ref.keepSynced(true)
         fireBaseData()
@@ -64,8 +57,10 @@ class SponsorFragment : Fragment() {
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SponsorViewHolder {
                 val itemView = LayoutInflater.from(activity)
-                    .inflate(R.layout.sponsors_layout,
-                    parent, false)
+                    .inflate(
+                        R.layout.sponsors_layout,
+                        parent, false
+                    )
 
                 return SponsorViewHolder(itemView)
             }
@@ -74,7 +69,8 @@ class SponsorFragment : Fragment() {
                 holder: SponsorViewHolder,
                 position: Int,
                 model: SponsorViewModel
-            ) { val placeid = getRef(position).key.toString()
+            ) {
+                val placeid = getRef(position).key.toString()
                 ref.child(placeid).addValueEventListener(object : ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
                         context?.toast("Error loading")
@@ -88,7 +84,8 @@ class SponsorFragment : Fragment() {
                         context?.let {
                             Glide.with(it)
                                 .load(model.sponsorLogo)
-                                .into(holder.sponsorLogo) }
+                                .into(holder.sponsorLogo)
+                        }
                         holder.itemView.setOnClickListener {
                             val intent = Intent(context, SponsorDetailActivity::class.java).apply {
                                 putExtra("sponsorName", model.sponsorName)
@@ -97,13 +94,15 @@ class SponsorFragment : Fragment() {
                                 putExtra("sponsorDescription", model.sponsorDescription)
                             }
                             context?.startActivity(intent)
-                        } }
+                        }
+                    }
                 })
             }
         }
         mrecylerview.adapter = fireBaseAdapter
         fireBaseAdapter.startListening()
     }
+
     class SponsorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var sponsorName: TextView = itemView.findViewById(R.id.sponsor_name)
         var sponsorsLevel: TextView = itemView.findViewById(R.id.sponsor_level)
