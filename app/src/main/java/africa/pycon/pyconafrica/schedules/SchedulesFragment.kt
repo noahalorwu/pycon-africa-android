@@ -15,11 +15,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.firebase.database.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.DataSnapshot
 import devs.mulham.horizontalcalendar.HorizontalCalendar
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
 
 class SchedulesFragment : Fragment() {
     private lateinit var mRecylerview: RecyclerView
@@ -83,8 +87,10 @@ class SchedulesFragment : Fragment() {
         }
     }
 
-    private fun initialize(calender: Calendar?) : FirebaseRecyclerAdapter<SchedulesViewModel, ScheduleViewHolder> {
-        val mDate = SimpleDateFormat("dd-MM-yyyy").format(calender?.time)
+    private fun initialize(calender: Calendar?):
+            FirebaseRecyclerAdapter<SchedulesViewModel, ScheduleViewHolder> {
+        val mDate = SimpleDateFormat("dd-MM-yyyy")
+            .format(calender?.time)
         val mSchedules = mRef.child("Schedules").child(mDate)
         FirebaseRecyclerOptions.Builder<SchedulesViewModel>()
             .setQuery(mSchedules, SchedulesViewModel::class.java)
@@ -144,10 +150,8 @@ class SchedulesFragment : Fragment() {
                                 }
 
                             context?.startActivity(intent)
-                        }
-                    }
+                        } }
                 })
             }
         }
-
 }
