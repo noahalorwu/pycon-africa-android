@@ -25,7 +25,8 @@ class TodosAdapter internal constructor(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
             TodosViewHolder {
         val inflatedView = LayoutInflater.from(parent.context).inflate(
-            R.layout.todos_item_layout, parent, false)
+            R.layout.todos_item_layout, parent, false
+        )
         return TodosViewHolder(inflatedView)
     }
 
@@ -55,9 +56,11 @@ class TodosAdapter internal constructor(
 //            listener!!.onItemEdit(todoItem, position)
 //        } }
 
-        holder.itemView.delete_todo.setOnClickListener { if (listener != null) {
-            listener!!.onItemDelete(todoItem)
-        } }
+        holder.itemView.delete_todo.setOnClickListener {
+            if (listener != null) {
+                listener!!.onItemDelete(todoItem)
+            }
+        }
     }
 
     interface OnClickListener {

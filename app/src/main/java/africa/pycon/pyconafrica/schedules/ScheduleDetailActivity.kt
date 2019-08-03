@@ -2,10 +2,10 @@ package africa.pycon.pyconafrica.schedules
 
 import africa.pycon.pyconafrica.R
 import africa.pycon.pyconafrica.extensions.browseCustomTab
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_schedule_detail.*
 import kotlinx.android.synthetic.main.speaker_profile.view.*
@@ -50,7 +50,7 @@ class ScheduleDetailActivity : AppCompatActivity() {
 
             mDialog.close_btn.setOnClickListener {
                 b.cancel()
-                }
+            }
         }
     }
 

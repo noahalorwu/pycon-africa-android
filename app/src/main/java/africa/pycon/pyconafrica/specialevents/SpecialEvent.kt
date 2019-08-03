@@ -1,26 +1,22 @@
 package africa.pycon.pyconafrica.specialevents
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import africa.pycon.pyconafrica.R
 import africa.pycon.pyconafrica.extensions.browseCustomTab
 import africa.pycon.pyconafrica.extensions.toast
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.*
 
 class SpecialEvent : Fragment() {
     lateinit var mSpecialRecyclerView: RecyclerView
@@ -43,7 +39,7 @@ class SpecialEvent : Fragment() {
         return view
     }
 
-        fun fireBaseData() {
+    fun fireBaseData() {
         val option = FirebaseRecyclerOptions.Builder<SpecialEventViewModel>()
             .setQuery(ref, SpecialEventViewModel::class.java)
             .setLifecycleOwner(this)
@@ -57,8 +53,10 @@ class SpecialEvent : Fragment() {
                 viewType: Int
             ): SpecialEventViewHolder {
                 val itemView = LayoutInflater.from(activity)
-                    .inflate(R.layout.special_event_layout,
-                        parent, false)
+                    .inflate(
+                        R.layout.special_event_layout,
+                        parent, false
+                    )
                 return SpecialEventViewHolder(itemView)
             }
 
@@ -66,7 +64,8 @@ class SpecialEvent : Fragment() {
                 holder: SpecialEventViewHolder,
                 position: Int,
                 model: SpecialEventViewModel
-            ) { val placeid = getRef(position).key.toString()
+            ) {
+                val placeid = getRef(position).key.toString()
                 ref.child(placeid).addValueEventListener(object : ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
                         context?.toast("Error loading")
@@ -84,7 +83,8 @@ class SpecialEvent : Fragment() {
                         context?.let {
                             Glide.with(it)
                                 .load(model.eventImg)
-                                .into(holder.eImage) }
+                                .into(holder.eImage)
+                        }
                     }
                 })
             }
@@ -92,6 +92,7 @@ class SpecialEvent : Fragment() {
         mSpecialRecyclerView.adapter = fireBaseAdapter
         fireBaseAdapter.startListening()
     }
+
     class SpecialEventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var eTitle: TextView = itemView.findViewById(R.id.event_title)
         var eDate: TextView = itemView.findViewById(R.id.event_date)

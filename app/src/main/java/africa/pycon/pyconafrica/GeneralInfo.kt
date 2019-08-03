@@ -1,10 +1,5 @@
 package africa.pycon.pyconafrica
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import africa.pycon.pyconafrica.extensions.browseCustomTab
 import africa.pycon.pyconafrica.extensions.toast
 import android.annotation.SuppressLint
@@ -12,7 +7,12 @@ import android.app.AlertDialog
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.Fragment
 
 class GeneralInfo : Fragment() {
 
@@ -32,6 +32,7 @@ class GeneralInfo : Fragment() {
         }
         return view
     }
+
     fun openMaps() {
         context?.browseCustomTab(getString(R.string.maps))
     }
@@ -52,9 +53,10 @@ class GeneralInfo : Fragment() {
         val alertDialog = builder.create()
         alertDialog.show()
 
-        copyButton?.setOnClickListener {
+        copyButton.setOnClickListener {
             copyToClipBoard(wifiKey = getString(R.string.wifi_key))
             alertDialog?.cancel()
-            context?.toast("Wifi Key Copied") }
+            context?.toast("Wifi Key Copied")
+        }
     }
 }

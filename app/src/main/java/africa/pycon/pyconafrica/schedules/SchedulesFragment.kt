@@ -2,36 +2,25 @@ package africa.pycon.pyconafrica.schedules
 
 import africa.pycon.pyconafrica.R
 import africa.pycon.pyconafrica.extensions.toast
-import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.*
 import devs.mulham.horizontalcalendar.HorizontalCalendar
+import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener
 import java.text.SimpleDateFormat
-import java.util.Calendar
-import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener as HorizontalCalendarListener
+import java.util.*
 
-class MyApp : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
-    }
-}
 class SchedulesFragment : Fragment() {
     lateinit var mRecylerview: RecyclerView
     lateinit var mRef: DatabaseReference
@@ -41,14 +30,19 @@ class SchedulesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view: View = inflater.inflate(R.layout.fragment_schedules, container,
-            false)
+        val view: View = inflater.inflate(
+            R.layout.fragment_schedules, container,
+            false
+        )
         mRecylerview = view.findViewById(R.id.schedules_recycler)
         mRef = FirebaseDatabase.getInstance().reference
         mRecylerview.layoutManager = LinearLayoutManager(parentFragment?.context)
-        mRecylerview.addItemDecoration(DividerItemDecoration(
-            activity!! as Context?,
-            DividerItemDecoration.VERTICAL))
+        mRecylerview.addItemDecoration(
+            DividerItemDecoration(
+                activity!! as Context?,
+                DividerItemDecoration.VERTICAL
+            )
+        )
         mRecylerview.setHasFixedSize(true)
         mRef.keepSynced(true)
         val startDate: Calendar = Calendar.getInstance()
@@ -76,8 +70,10 @@ class SchedulesFragment : Fragment() {
                         viewType: Int
                     ): ScheduleViewHolder {
                         val itemView = LayoutInflater.from(activity)
-                            .inflate(R.layout.schedules_layout, parent,
-                                false)
+                            .inflate(
+                                R.layout.schedules_layout, parent,
+                                false
+                            )
 
                         return ScheduleViewHolder(itemView)
                     }
@@ -92,6 +88,7 @@ class SchedulesFragment : Fragment() {
                             override fun onCancelled(p0: DatabaseError) {
                                 context?.toast("Error loading")
                             }
+
                             override fun onDataChange(p0: DataSnapshot) {
                                 holder.tStartTime.text = model.startTime.toString()
                                 holder.tEndTime.text = model.endTime.toString()
@@ -100,16 +97,16 @@ class SchedulesFragment : Fragment() {
                                 holder.itemView.setOnClickListener {
                                     val intent = Intent(context, ScheduleDetailActivity::class.java)
                                         .apply {
-                                        putExtra("startTime", model.startTime)
-                                        putExtra("endTime", model.endTime)
-                                        putExtra("talkTitle", model.talkTitle)
-                                        putExtra("talkDescription", model.talkDescription)
-                                        putExtra("talkLocation", model.talkLocation)
-                                        putExtra("speakerName", model.speakerName)
-                                        putExtra("speakerProfile", model.speakerProfile)
-                                        putExtra("speakerTwitter", model.speakerTwitter)
-                                        putExtra("speakerImage", model.speakerImage)
-                                    }
+                                            putExtra("startTime", model.startTime)
+                                            putExtra("endTime", model.endTime)
+                                            putExtra("talkTitle", model.talkTitle)
+                                            putExtra("talkDescription", model.talkDescription)
+                                            putExtra("talkLocation", model.talkLocation)
+                                            putExtra("speakerName", model.speakerName)
+                                            putExtra("speakerProfile", model.speakerProfile)
+                                            putExtra("speakerTwitter", model.speakerTwitter)
+                                            putExtra("speakerImage", model.speakerImage)
+                                        }
 
                                     context?.startActivity(intent)
                                 }
@@ -122,7 +119,7 @@ class SchedulesFragment : Fragment() {
             }
         }
         return view
-        }
+    }
 
     class ScheduleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tStartTime: TextView = itemView.findViewById(R.id.start_time)

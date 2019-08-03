@@ -34,18 +34,24 @@ class Facebook : Fragment() {
 
     fun noah(view: View) {
         val bottomNavigation: MeowBottomNavigation = view.findViewById(R.id.bottomNavigation)
-        bottomNavigation.add(MeowBottomNavigation.Model(
-            ID_BACK,
-            R.drawable.backweb
-        ))
-        bottomNavigation.add(MeowBottomNavigation.Model(
-            ID_RELOAD,
-            R.drawable.reload
-        ))
-        bottomNavigation.add(MeowBottomNavigation.Model(
-            ID_FORWARD,
-            R.drawable.forwardarrow
-        ))
+        bottomNavigation.add(
+            MeowBottomNavigation.Model(
+                ID_BACK,
+                R.drawable.backweb
+            )
+        )
+        bottomNavigation.add(
+            MeowBottomNavigation.Model(
+                ID_RELOAD,
+                R.drawable.reload
+            )
+        )
+        bottomNavigation.add(
+            MeowBottomNavigation.Model(
+                ID_FORWARD,
+                R.drawable.forwardarrow
+            )
+        )
         bottomNavigation.setOnShowListener {
             when (it.id) {
                 ID_RELOAD -> "Reload"
@@ -66,7 +72,7 @@ class Facebook : Fragment() {
                     web_facebook.goBack()
                 }
                 ID_FORWARD -> {
-                        web_facebook.goForward()
+                    web_facebook.goForward()
                 }
                 else -> ""
             }

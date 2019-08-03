@@ -1,10 +1,10 @@
 package africa.pycon.pyconafrica.extensions
 
+import africa.pycon.pyconafrica.todos.Todo
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import africa.pycon.pyconafrica.todos.Todo
 
 class DBHelper(context: Context?) : SQLiteOpenHelper(
     context,
@@ -104,21 +104,26 @@ class DBHelper(context: Context?) : SQLiteOpenHelper(
 
     fun getTodo(id: Long): Todo {
         val db = this.readableDatabase
-        val cursor = db.query(TABLE_NAME,
-                arrayOf(COLUMN_ID,
-                    COLUMN_TITLE,
-                    COLUMN_DESCRIPTION,
-                    COLUMN_TIMESTAMP),
+        val cursor = db.query(
+            TABLE_NAME,
+            arrayOf(
+                COLUMN_ID,
+                COLUMN_TITLE,
+                COLUMN_DESCRIPTION,
+                COLUMN_TIMESTAMP
+            ),
             COLUMN_ID + "=?",
-                arrayOf(id.toString()), null, null, null, null)
+            arrayOf(id.toString()), null, null, null, null
+        )
 
         cursor?.moveToFirst()
         // prepare todos object
         val todo = Todo(
-                cursor!!.getInt(cursor.getColumnIndex(COLUMN_ID)),
-                cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)),
-                cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)),
-                cursor.getString(cursor.getColumnIndex(COLUMN_TIMESTAMP)))
+            cursor!!.getInt(cursor.getColumnIndex(COLUMN_ID)),
+            cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)),
+            cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)),
+            cursor.getString(cursor.getColumnIndex(COLUMN_TIMESTAMP))
+        )
         cursor.close()
         return todo
     }
