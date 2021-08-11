@@ -21,8 +21,6 @@ fun Context.browseCustomTab(url: String?) {
     }
 }
 
-//Trying something 
-
 fun Context.openWebView(webview: WebView, link: String?, pb: ProgressBar) {
     webview.settings.javaScriptEnabled = true
     webview.settings.loadsImagesAutomatically = true
